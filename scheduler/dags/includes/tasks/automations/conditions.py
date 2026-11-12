@@ -193,6 +193,17 @@ class ProductEqualsCondition(ConditionEvaluator):
                 return True
         return False
 
+@register_condition("product_gte")
+class ProductEqualsCondition(ConditionEvaluator):
+    def evaluate(self, value, change_details, cve_trackers):
+        expected_product = str(value or "").lower()
+        vendors = change_details.get("cve_vendors", [])
+        for vendor in vendors:
+            if PRODUCT_SEPARATOR not in vendor:
+                continue
+            _, product = vendor.split(PRODUCT_SEPARATOR, 1)
+            if product.lower() == expected_product:
+                return True
 
 for _condition_type in CONDITION_TO_CHANGE_TYPES:
     _register_change_type_condition(_condition_type)

@@ -13,7 +13,7 @@ RUN apt-get update \
 
 WORKDIR /app
 
-ARG OPENCVE_REPOSITORY="https://github.com/opencve/opencve.git"
+ARG OPENCVE_REPOSITORY="https://github.com/gwlim/opencve.git"
 ARG OPENCVE_VERSION="master"
 
 RUN git clone --depth 1 -b "${OPENCVE_VERSION}" --single-branch "${OPENCVE_REPOSITORY}"

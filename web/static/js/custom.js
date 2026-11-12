@@ -3058,7 +3058,7 @@ $(document).ready(function() {
       },
       'targeting_filters': { 
         label: 'Targeting filters', 
-        conditions: ['vendor_equals', 'product_equals']
+        conditions: ['vendor_equals', 'product_equals', 'product_gte']
       },
       'project_state': { 
         label: 'Project state', 
@@ -3157,6 +3157,11 @@ $(document).ready(function() {
         label: 'The product matches {value}', 
         input: 'text', 
         placeholder: 'e.g., httpd' 
+      },
+      product_gte: {
+        label: 'The product {version} is greater than or equal to {value}',
+        input: 'text',
+        placeholder: 'e.g., 7.0'
       },
       cve_newer_than: { 
         label: 'The CVE was published less than {value} days ago', 
